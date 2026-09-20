@@ -19,6 +19,7 @@ attrs=26.1.0=pyhcf101f3_0
 babel=2.18.0=pyhcf101f3_1
 backports.zstd=1.7.0=py311hdee5a0d_1
 beautifulsoup4=4.15.0=pyha770c72_0
+bedtools=2.31.1=he85ad4a_3
 bleach=6.4.0=pyhcf101f3_0
 bleach-with-css=6.4.0=hac0b51c_0
 brotli=1.2.0=hf00d406_4
@@ -181,7 +182,7 @@ openjpeg=2.5.4=h4d1e80c_2
 openssl=3.6.4=h55eecbc_0
 overrides=7.7.0=pyhd8ed1ab_1
 packaging=25.0=pyh29332c3_1
-pandas=3.0.6=np2py311h0e7d951_0
+pandas=2.3.3=py311hdb8e4fa_2
 pandocfilters=1.5.0=pyhd8ed1ab_0
 parso=0.8.7=pyhcf101f3_0
 pcre2=10.47=he63d830_1
@@ -222,6 +223,7 @@ python-json-logger=4.2.0=pyhd8ed1ab_0
 python-kaleido=0.2.1=pyhd8ed1ab_0
 python-tzdata=2026.3=pyhd8ed1ab_0
 python_abi=3.11=9_cp311
+pytz=2026.3.post1=pyhcf101f3_0
 pyyaml=6.0.3=py311hc290fe0_1
 pyzmq=27.2.0=py311h0a890f6_2
 qhull=2020.2=h420ef59_5
@@ -244,7 +246,7 @@ slack-sdk=3.44.1=pyh5ded981_0
 slack_sdk=3.44.1=pyh79c2f5f_0
 smart_open=7.7.1=pyhcf101f3_0
 smmap=5.0.3=pyhcf101f3_1
-snakemake=9.24.0=hdfd78af_0
+snakemake=9.24.0=hdfd78af_2
 snakemake-interface-common=1.23.1=pyhdfd78af_0
 snakemake-interface-executor-plugins=9.4.0=pyh84498cf_0
 snakemake-interface-logger-plugins=2.1.0=pyhdfd78af_0
