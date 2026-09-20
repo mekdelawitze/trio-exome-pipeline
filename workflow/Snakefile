@@ -1,0 +1,7 @@
+# Trio exome pipeline. Rules get added one step at a time.
+configfile: "config/config.yaml"
+
+SAMPLES = list(config["samples"])
+
+rule all:
+    input: []   # populated as steps are added

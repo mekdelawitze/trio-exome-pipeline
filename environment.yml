@@ -1,0 +1,20 @@
+# Week 1 tools only. Later weeks add gatk4, bcftools, vep/snpeff, hap.py/rtg-tools.
+# Versions are minimum constraints for now; after the first successful solve we
+# run `conda env export --from-history` / `conda list --export` and pin exact versions.
+name: trio-exome
+channels:
+  - conda-forge
+  - bioconda
+  - nodefaults
+dependencies:
+  - python=3.11
+  - snakemake>=8
+  - samtools>=1.19
+  - bwa>=0.7.17
+  - fastp>=0.23
+  - fastqc>=0.12
+  - multiqc>=1.21
+  - openjdk=17
+  - pandas
+  - matplotlib
+  - jupyterlab

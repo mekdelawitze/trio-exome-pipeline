@@ -1,0 +1,10 @@
+# All the knobs live here so the workflow code stays generic.
+# Fill the TODOs after the data-check step (BAM header, target BED).
+region: "22"            # develop on one chromosome; GRCh37 style contig name, no "chr" prefix (verify from BAM header)
+samples:
+  HG002: {role: son}
+  HG003: {role: father}
+  HG004: {role: mother}
+reference_fasta: "resources/TODO_reference.fa"   # must match the build the BAMs were aligned to
+target_bed: "resources/TODO_targets.bed"         # exome capture kit targets (or padded coding exons)
+threads: 4

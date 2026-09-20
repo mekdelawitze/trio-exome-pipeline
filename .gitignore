@@ -1,0 +1,18 @@
+# Big or regenerable files stay out of git
+data/*
+resources/*
+results/*
+!data/.gitkeep
+!resources/.gitkeep
+!results/.gitkeep
+.snakemake/
+*.bam
+*.bai
+*.cram
+*.fastq.gz
+*.fq.gz
+*.vcf.gz
+*.vcf.gz.tbi
+.ipynb_checkpoints/
+__pycache__/
+.DS_Store
