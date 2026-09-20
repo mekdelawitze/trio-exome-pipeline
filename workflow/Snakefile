@@ -4,4 +4,49 @@ configfile: "config/config.yaml"
 SAMPLES = list(config["samples"])
 
 rule all:
-    input: []   # populated as steps are added
+    input:
+        expand("data/trimmed/{sample}_R1.fastq.gz", sample=SAMPLES),
+        expand("results/align/{sample}.bam", sample=SAMPLES),
+        expand("results/align/{sample}.bam.bai", sample=SAMPLES),
+
+
+rule fastp:
+    input:
+        r1="data/fastq/{sample}_R1.fastq.gz",
+        r2="data/fastq/{sample}_R2.fastq.gz",
+    output:
+        r1="data/trimmed/{sample}_R1.fastq.gz",
+        r2="data/trimmed/{sample}_R2.fastq.gz",
+        json="results/qc/fastp/{sample}.json",
+        html="results/qc/fastp/{sample}.html",
+    threads: 4
+    shell:
+        "fastp -i {input.r1} -I {input.r2} -o {output.r1} -O {output.r2} "
+        "--detect_adapter_for_pe -w {threads} -j {output.json} -h {output.html}"
+
+
+rule align:
+    input:
+        r1="data/trimmed/{sample}_R1.fastq.gz",
+        r2="data/trimmed/{sample}_R2.fastq.gz",
+        ref=config["reference_fasta"],
+        idx=multiext(config["reference_fasta"], ".amb", ".ann", ".bwt", ".pac", ".sa"),
+    output:
+        bam="results/align/{sample}.bam",
+    params:
+        rg=lambda wc: f"@RG\\tID:{wc.sample}\\tSM:{wc.sample}\\tPL:ILLUMINA\\tLB:{wc.sample}_lib1\\tPU:AC7F6GANXX.L008",
+    threads: 4
+    shell:
+        "bwa mem -t {threads} -R '{params.rg}' {input.ref} {input.r1} {input.r2} "
+        "| samtools fixmate -m -u - - "
+        "| samtools sort -u -@ {threads} - "
+        "| samtools markdup -@ {threads} - {output.bam}"
+
+
+rule index_bam:
+    input:
+        "results/align/{sample}.bam",
+    output:
+        "results/align/{sample}.bam.bai",
+    shell:
+        "samtools index {input}"

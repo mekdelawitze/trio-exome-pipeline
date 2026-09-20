@@ -5,6 +5,6 @@ samples:
   HG002: {role: son}
   HG003: {role: father}
   HG004: {role: mother}
-reference_fasta: "resources/TODO_reference.fa"   # must match the build the BAMs were aligned to
-target_bed: "resources/TODO_targets.bed"         # exome capture kit targets (or padded coding exons)
+reference_fasta: "resources/ref/hs37d5.fa"
+target_bed: "resources/chr22_cds_pad100.bed"
 threads: 4
