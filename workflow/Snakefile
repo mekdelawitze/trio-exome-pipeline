@@ -8,7 +8,8 @@ rule all:
         expand("data/trimmed/{sample}_R1.fastq.gz", sample=SAMPLES),
         expand("results/align/{sample}.bam", sample=SAMPLES),
         expand("results/align/{sample}.bam.bai", sample=SAMPLES),
-
+        expand("results/qc/align/{sample}.flagstat.txt", sample=SAMPLES),
+        expand("results/qc/align/{sample}.target_qc.tsv", sample=SAMPLES),
 
 rule fastp:
     input:
@@ -42,7 +43,6 @@ rule align:
         "| samtools sort -u -@ {threads} - "
         "| samtools markdup -@ {threads} - {output.bam}"
 
-
 rule index_bam:
     input:
         "results/align/{sample}.bam",
@@ -50,3 +50,24 @@ rule index_bam:
         "results/align/{sample}.bam.bai",
     shell:
         "samtools index {input}"
+
+
+rule flagstat:
+    input:
+        "results/align/{sample}.bam",
+    output:
+        "results/qc/align/{sample}.flagstat.txt",
+    shell:
+        "samtools flagstat {input} > {output}"
+
+
+rule target_qc:
+    input:
+        bam="results/align/{sample}.bam",
+        bai="results/align/{sample}.bam.bai",
+        bed=config["target_bed"],
+        script="workflow/scripts/target_qc.sh",
+    output:
+        "results/qc/align/{sample}.target_qc.tsv",
+    shell:
+        "bash {input.script} {wildcards.sample} {input.bam} {input.bed} > {output}"
