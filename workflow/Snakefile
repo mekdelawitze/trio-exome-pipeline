@@ -10,6 +10,7 @@ rule all:
         expand("results/align/{sample}.bam.bai", sample=SAMPLES),
         expand("results/qc/align/{sample}.flagstat.txt", sample=SAMPLES),
         expand("results/qc/align/{sample}.target_qc.tsv", sample=SAMPLES),
+        "results/qc/multiqc/multiqc_report.html",
 
 rule fastp:
     input:
@@ -71,3 +72,25 @@ rule target_qc:
         "results/qc/align/{sample}.target_qc.tsv",
     shell:
         "bash {input.script} {wildcards.sample} {input.bam} {input.bed} > {output}"
+
+
+rule fastqc:
+    input:
+        "data/fastq/{sample}_{read}.fastq.gz",
+    output:
+        html="results/qc/fastqc/{sample}_{read}_fastqc.html",
+        zip="results/qc/fastqc/{sample}_{read}_fastqc.zip",
+    threads: 2
+    shell:
+        "fastqc -t {threads} -o results/qc/fastqc {input}"
+
+
+rule multiqc:
+    input:
+        expand("results/qc/fastqc/{sample}_{read}_fastqc.zip", sample=SAMPLES, read=["R1", "R2"]),
+        expand("results/qc/fastp/{sample}.json", sample=SAMPLES),
+        expand("results/qc/align/{sample}.flagstat.txt", sample=SAMPLES),
+    output:
+        "results/qc/multiqc/multiqc_report.html",
+    shell:
+        "multiqc {input} -o results/qc/multiqc -f"
