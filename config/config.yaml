@@ -2,9 +2,9 @@
 # Fill the TODOs after the data-check step (BAM header, target BED).
 region: "22"            # develop on one chromosome; GRCh37 style contig name, no "chr" prefix (verify from BAM header)
 samples:
-  HG002: {role: son}
-  HG003: {role: father}
-  HG004: {role: mother}
+  HG002: {role: son, bam_url: "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/AshkenazimTrio/HG002_NA24385_son/OsloUniversityHospital_Exome/151002_7001448_0359_AC7F6GANXX_Sample_HG002-EEogPU_v02-KIT-Av5_AGATGTAC_L008.posiSrt.markDup.bam"}
+  HG003: {role: father, bam_url: "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/AshkenazimTrio/HG003_NA24149_father/OsloUniversityHospital_Exome/151002_7001448_0359_AC7F6GANXX_Sample_HG003-EEogPU_v02-KIT-Av5_TCTTCACA_L008.posiSrt.markDup.bam"}
+  HG004: {role: mother, bam_url: "https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/data/AshkenazimTrio/HG004_NA24143_mother/OsloUniversityHospital_Exome/151002_7001448_0359_AC7F6GANXX_Sample_HG004-EEogPU_v02-KIT-Av5_CCGAAGTA_L008.posiSrt.markDup.bam"}
 reference_fasta: "resources/ref/hs37d5.fa"
 target_bed: "resources/chr22_cds_pad100.bed"
 threads: 4
