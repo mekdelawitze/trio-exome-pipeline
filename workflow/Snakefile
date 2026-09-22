@@ -11,6 +11,7 @@ rule all:
         expand("results/qc/align/{sample}.flagstat.txt", sample=SAMPLES),
         expand("results/qc/align/{sample}.target_qc.tsv", sample=SAMPLES),
         "results/qc/multiqc/multiqc_report.html",
+                expand("data/{sample}.chr22.bam", sample=SAMPLES),
 
 rule fastp:
     input:
@@ -94,3 +95,26 @@ rule multiqc:
         "results/qc/multiqc/multiqc_report.html",
     shell:
         "multiqc {input} -o results/qc/multiqc -f"
+
+rule subset_bam:
+    output:
+        bam="data/{sample}.chr22.bam",
+        bai="data/{sample}.chr22.bam.bai",
+    params:
+        url=lambda wc: config["samples"][wc.sample]["bam_url"],
+        region=config["region"],
+    shell:
+        "samtools view -b -o {output.bam} '{params.url}' {params.region} && "
+        "samtools index {output.bam}"
+
+
+rule bam_to_fastq:
+    input:
+        "data/{sample}.chr22.bam",
+    output:
+        r1="data/fastq/{sample}_R1.fastq.gz",
+        r2="data/fastq/{sample}_R2.fastq.gz",
+        singletons="data/fastq/{sample}_singletons.fastq.gz",
+    shell:
+        "samtools collate -u -O {input} "
+        "| samtools fastq -n -F 0x900 -1 {output.r1} -2 {output.r2} -0 /dev/null -s {output.singletons} -"
