@@ -26,3 +26,18 @@ Anyone reproducing this pipeline from a fresh clone needs to obtain or
 rebuild these two resources first, using the commands recorded earlier
 in this file. Wrapping their construction in Snakemake rules is a
 possible improvement for a later pass.
+
+## GIAB truth set (Week 2)
+
+Downloaded the NIST/GIAB v4.2.1 high-confidence benchmark for HG002,
+GRCh37 build, from the official NCBI GIAB release folder:
+
+- `resources/truth/HG002_GRCh37_benchmark.vcf.gz` (+ `.tbi` index) —
+  expert-verified variant calls, whole genome (chromosomes 1-22).
+- `resources/truth/HG002_GRCh37_benchmark.bed` — ~470K confident
+  regions where that truth set can be trusted.
+
+Verified: gzip integrity, sample column reads `HG002`, and chromosome
+naming (`1`, not `chr1`) matches the reference and BAM headers used
+in Week 1. Only HG003/HG004 (the parents) do not have official GIAB
+truth sets released, so benchmarking (Week 2) is limited to HG002.
