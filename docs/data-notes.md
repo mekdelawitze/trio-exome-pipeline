@@ -41,3 +41,24 @@ Verified: gzip integrity, sample column reads `HG002`, and chromosome
 naming (`1`, not `chr1`) matches the reference and BAM headers used
 in Week 1. Only HG003/HG004 (the parents) do not have official GIAB
 truth sets released, so benchmarking (Week 2) is limited to HG002.
+
+
+## Week 2 benchmark results (chr22, HG002 vs GIAB truth)
+
+Ran GATK HaplotypeCaller (GVCF mode) per sample, joint-genotyped the trio
+with GenotypeGVCFs, and applied GATK's documented hard filters separately
+for SNPs and indels. Benchmarked the filtered HG002 calls against the
+GIAB v4.2.1 truth set using `rtg vcfeval`, restricted to truth-confident
+regions overlapping the chr22 exome capture target (3,833 regions).
+
+| Type   | TP   | FP | FN | Precision | Recall | F1    |
+|--------|------|----|----|-----------|--------|-------|
+| SNPs   | 1282 | 14 | 88 | 0.989     | 0.936  | 0.962 |
+| Indels | 120  | 16 | 17 | 0.882     | 0.876  | 0.879 |
+
+Indel accuracy is lower than SNP accuracy, which matches the known
+difficulty of indel calling (ambiguous alignment/representation around
+insertions and deletions) rather than indicating a pipeline problem.
+
+Overall hard-filter pass rate: 36,739 / 37,960 variants (96.8%) passed
+all GATK hard filters on chr22 before benchmarking.
