@@ -19,4 +19,6 @@ dependencies:
   - matplotlib
   - jupyterlab
   - bedtools
-  
+  - gatk4
+  - bcftools
+  - rtg-tools
