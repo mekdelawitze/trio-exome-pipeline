@@ -11,7 +11,8 @@ rule all:
         expand("results/qc/align/{sample}.flagstat.txt", sample=SAMPLES),
         expand("results/qc/align/{sample}.target_qc.tsv", sample=SAMPLES),
         "results/qc/multiqc/multiqc_report.html",
-                expand("data/{sample}.chr22.bam", sample=SAMPLES),
+        expand("data/{sample}.chr22.bam", sample=SAMPLES),
+        "results/benchmark/HG002_chr22",
 
 rule fastp:
     input:
@@ -118,3 +119,108 @@ rule bam_to_fastq:
     shell:
         "samtools collate -u -O {input} "
         "| samtools fastq -n -F 0x900 -1 {output.r1} -2 {output.r2} -0 /dev/null -s {output.singletons} -"
+
+
+rule haplotype_caller:
+    input:
+        bam="results/align/{sample}.bam",
+        ref=config["reference_fasta"],
+    output:
+        gvcf="results/variants/{sample}.g.vcf.gz",
+        idx="results/variants/{sample}.g.vcf.gz.tbi",
+    params:
+        region=config["region"],
+    shell:
+        "gatk HaplotypeCaller -R {input.ref} -I {input.bam} -O {output.gvcf} -ERC GVCF -L {params.region}"
+
+rule combine_gvcfs:
+    input:
+        gvcfs=expand("results/variants/{sample}.g.vcf.gz", sample=config["samples"].keys()),
+        ref=config["reference_fasta"],
+    output:
+        "results/variants/trio.g.vcf.gz",
+    params:
+        region=config["region"],
+        variant_args=lambda wc, input: " ".join(f"-V {g}" for g in input.gvcfs),
+    shell:
+        "gatk CombineGVCFs -R {input.ref} {params.variant_args} -O {output} -L {params.region}"
+    
+rule genotype_gvcfs:
+    input:
+        gvcf="results/variants/trio.g.vcf.gz",
+        ref=config["reference_fasta"],
+    output:
+        "results/variants/trio.vcf.gz",
+    params:
+        region=config["region"],
+    shell:
+        "gatk GenotypeGVCFs -R {input.ref} -V {input.gvcf} -O {output} -L {params.region}"
+
+rule select_snps:
+    input:
+        vcf="results/variants/trio.vcf.gz",
+        ref=config["reference_fasta"],
+    output:
+        "results/variants/trio.snps.vcf.gz",
+    shell:
+        "gatk SelectVariants -R {input.ref} -V {input.vcf} --select-type-to-include SNP -O {output}"
+    
+rule select_indels:
+    input:
+        vcf="results/variants/trio.vcf.gz",
+        ref=config["reference_fasta"],
+    output:
+        "results/variants/trio.indels.vcf.gz",
+    shell:
+        "gatk SelectVariants -R {input.ref} -V {input.vcf} --select-type-to-include INDEL -O {output}"
+
+rule filter_snps:
+    input:
+        vcf="results/variants/trio.snps.vcf.gz",
+        ref=config["reference_fasta"],
+    output:
+        "results/variants/trio.snps.filtered.vcf.gz",
+    shell:
+        "gatk VariantFiltration -R {input.ref} -V {input.vcf} -O {output} "
+        "--filter-expression 'QD < 2.0' --filter-name QD2 "
+        "--filter-expression 'FS > 60.0' --filter-name FS60 "
+        "--filter-expression 'MQ < 40.0' --filter-name MQ40 "
+        "--filter-expression 'MQRankSum < -12.5' --filter-name MQRankSum-12.5 "
+        "--filter-expression 'ReadPosRankSum < -8.0' --filter-name ReadPosRankSum-8 "
+        "--filter-expression 'SOR > 3.0' --filter-name SOR3"
+
+rule filter_indels:
+    input:
+        vcf="results/variants/trio.indels.vcf.gz",
+        ref=config["reference_fasta"],
+    output:
+        "results/variants/trio.indels.filtered.vcf.gz",
+    shell:
+        "gatk VariantFiltration -R {input.ref} -V {input.vcf} -O {output} "
+        "--filter-expression 'QD < 2.0' --filter-name QD2 "
+        "--filter-expression 'FS > 200.0' --filter-name FS200 "
+        "--filter-expression 'ReadPosRankSum < -20.0' --filter-name ReadPosRankSum-20 "
+        "--filter-expression 'SOR > 10.0' --filter-name SOR10"
+
+rule merge_filtered:
+    input:
+        snps="results/variants/trio.snps.filtered.vcf.gz",
+        indels="results/variants/trio.indels.filtered.vcf.gz",
+    output:
+        "results/variants/trio.filtered.vcf.gz",
+    shell:
+        "gatk MergeVcfs -I {input.snps} -I {input.indels} -O {output}"
+
+rule benchmark:
+    input:
+        vcf="results/variants/trio.filtered.vcf.gz",
+        truth_vcf=config["truth_vcf"],
+        regions=config["eval_regions"],
+        sdf=config["rtg_sdf"],
+    output:
+        directory("results/benchmark/HG002_chr22"),
+    params:
+        sample="HG002",
+    shell:
+        "rm -rf {output} && rtg vcfeval -b {input.truth_vcf} -c {input.vcf} -t {input.sdf} -o {output} "
+        "--bed-regions {input.regions} --sample {params.sample}"

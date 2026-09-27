@@ -62,3 +62,20 @@ insertions and deletions) rather than indicating a pipeline problem.
 
 Overall hard-filter pass rate: 36,739 / 37,960 variants (96.8%) passed
 all GATK hard filters on chr22 before benchmarking.
+
+
+## Week 2 wrapped into Snakemake
+
+All of Week 2 (per-sample HaplotypeCaller, combining GVCFs, joint
+genotyping, splitting into SNPs/indels, hard-filtering each, merging
+back together, and benchmarking with rtg vcfeval) is now written as
+Snakemake rules instead of commands I ran by hand.
+
+To check this actually worked, I had Snakemake re-run the benchmark
+step and it produced the exact same result as before: TP=1402, FP=30,
+FN=105, F-measure=0.9541. Same numbers, so the rules are correct.
+
+One note: the version of rtg vcfeval I have installed doesn't support
+the --force flag, and it won't write into an output folder that already
+exists. So the benchmark rule deletes the old output folder first
+(rm -rf) before running rtg vcfeval, so it can be re-run safely.

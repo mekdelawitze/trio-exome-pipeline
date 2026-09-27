@@ -8,3 +8,7 @@ samples:
 reference_fasta: "resources/ref/hs37d5.fa"
 target_bed: "resources/chr22_cds_pad100.bed"
 threads: 4
+
+truth_vcf: "resources/truth/HG002_GRCh37_benchmark.vcf.gz"
+eval_regions: "resources/truth/HG002_chr22_eval_regions.bed"
+rtg_sdf: "resources/ref/hs37d5.sdf"
