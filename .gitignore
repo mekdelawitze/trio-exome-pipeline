@@ -1,18 +1,50 @@
-# Big or regenerable files stay out of git
+# Big or regenerable files stay out of git by default
 data/*
-resources/*
-results/*
 !data/.gitkeep
+
+resources/*
 !resources/.gitkeep
+
+results/*
 !results/.gitkeep
+
+# Small, meaningful result files are tracked so reviewers can see
+# real pipeline output without re-running everything; raw sequencing
+# data and bulky regenerable reports stay out even within these folders.
+!results/annotation/
+!results/benchmark/
+!results/denovo/
+!results/qc/
+
+results/benchmark/HG002_chr22/done
+results/benchmark/HG002_chr22/progress
+results/benchmark/HG002_chr22/.snakemake_timestamp
+results/benchmark/HG002_chr22/tp.vcf.gz*
+results/benchmark/HG002_chr22/tp-baseline.vcf.gz*
+results/benchmark/HG002_chr22/*.tsv.gz
+
+results/denovo/trio.possiblydenovo.vcf.gz*
+
+results/qc/fastp/*
+results/qc/fastqc/*
+results/qc/multiqc/multiqc_report.html
+results/qc/multiqc/multiqc_data/multiqc_data.json
+results/qc/multiqc/multiqc_data/multiqc.parquet
+results/qc/multiqc/multiqc_data/multiqc.log
+results/qc/multiqc/multiqc_data/llms-full.txt
+results/qc/multiqc/multiqc_data/multiqc_fastp.txt
+results/qc/multiqc/multiqc_data/multiqc_citations.txt
+results/qc/multiqc/multiqc_data/multiqc_sources.txt
+results/qc/multiqc/multiqc_data/fastp*
+results/qc/multiqc/multiqc_data/fastqc_*
+results/qc/multiqc/multiqc_data/fastqc-*
+
 .snakemake/
 *.bam
 *.bai
 *.cram
 *.fastq.gz
 *.fq.gz
-*.vcf.gz
-*.vcf.gz.tbi
 .ipynb_checkpoints/
 __pycache__/
 .DS_Store

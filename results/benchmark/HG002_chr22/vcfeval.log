@@ -1,0 +1,238 @@
+2026-09-29 23:12:10 serial = 27182818284
+2026-09-29 23:12:10 email = anon
+2026-09-29 23:12:10 RTG version = RTG Tools 3.13 / Core c27844a5bb (2025-05-27)
+2026-09-29 23:12:10 file.encoding = UTF-8
+2026-09-29 23:12:10 file.separator = /
+2026-09-29 23:12:10 ftp.nonProxyHosts = local|*.local|169.254/16|*.169.254/16
+2026-09-29 23:12:10 host.name = Mekdelawits-MacBook-Air.local
+2026-09-29 23:12:10 http.nonProxyHosts = local|*.local|169.254/16|*.169.254/16
+2026-09-29 23:12:10 java.class.path = /opt/anaconda3/envs/trio-exome/share/rtg-tools-3.13-0/RTG.jar
+2026-09-29 23:12:10 java.class.version = 61.0
+2026-09-29 23:12:10 java.home = /opt/anaconda3/envs/trio-exome/lib/jvm
+2026-09-29 23:12:10 java.io.tmpdir = /var/folders/rl/48qycw0x167fyxwftth6l_q40000gn/T/
+2026-09-29 23:12:10 java.library.path = /opt/anaconda3/envs/trio-exome/share/rtg-tools-3.13-0
+2026-09-29 23:12:10 java.runtime.name = OpenJDK Runtime Environment
+2026-09-29 23:12:10 java.runtime.version = 17.0.18+8-LTS
+2026-09-29 23:12:10 java.specification.maintenance.version = 1
+2026-09-29 23:12:10 java.specification.name = Java Platform API Specification
+2026-09-29 23:12:10 java.specification.vendor = Oracle Corporation
+2026-09-29 23:12:10 java.specification.version = 17
+2026-09-29 23:12:10 java.vendor = Azul Systems, Inc.
+2026-09-29 23:12:10 java.vendor.url = http://www.azul.com/
+2026-09-29 23:12:10 java.vendor.url.bug = http://www.azul.com/support/
+2026-09-29 23:12:10 java.vendor.version = Zulu17.64+17-CA
+2026-09-29 23:12:10 java.version = 17.0.18
+2026-09-29 23:12:10 java.version.date = 2026-01-20
+2026-09-29 23:12:10 java.vm.compressedOopsMode = Zero based
+2026-09-29 23:12:10 java.vm.info = mixed mode, sharing
+2026-09-29 23:12:10 java.vm.name = OpenJDK 64-Bit Server VM
+2026-09-29 23:12:10 java.vm.specification.name = Java Virtual Machine Specification
+2026-09-29 23:12:10 java.vm.specification.vendor = Oracle Corporation
+2026-09-29 23:12:10 java.vm.specification.version = 17
+2026-09-29 23:12:10 java.vm.vendor = Azul Systems, Inc.
+2026-09-29 23:12:10 java.vm.version = 17.0.18+8-LTS
+2026-09-29 23:12:10 jdk.debug = release
+2026-09-29 23:12:10 lang.version = 17.0.18
+2026-09-29 23:12:10 line.separator = 
+
+2026-09-29 23:12:10 models.dir = /opt/anaconda3/envs/trio-exome/share/rtg-tools-3.13-0/models
+2026-09-29 23:12:10 nashorn.option.no.deprecation.warning = true
+2026-09-29 23:12:10 native.encoding = UTF-8
+2026-09-29 23:12:10 os.arch = aarch64
+2026-09-29 23:12:10 os.freememory = 564723712
+2026-09-29 23:12:10 os.name = Mac OS X
+2026-09-29 23:12:10 os.totalmemory = 17179869184
+2026-09-29 23:12:10 os.version = 15.7.4
+2026-09-29 23:12:10 path.separator = :
+2026-09-29 23:12:10 polyglot.js.nashorn-compat = true
+2026-09-29 23:12:10 processor.arch = aarch64
+2026-09-29 23:12:10 processor.count = 10
+2026-09-29 23:12:10 references.dir = /opt/anaconda3/envs/trio-exome/share/rtg-tools-3.13-0/references
+2026-09-29 23:12:10 runtime.freememory = 265136872
+2026-09-29 23:12:10 runtime.maxmemory = 15468593152
+2026-09-29 23:12:10 runtime.totalMemory = 285212672
+2026-09-29 23:12:10 socksNonProxyHosts = local|*.local|169.254/16|*.169.254/16
+2026-09-29 23:12:10 sun.arch.data.model = 64
+2026-09-29 23:12:10 sun.boot.library.path = /opt/anaconda3/envs/trio-exome/lib/jvm/lib
+2026-09-29 23:12:10 sun.cpu.endian = little
+2026-09-29 23:12:10 sun.io.unicode.encoding = UnicodeBig
+2026-09-29 23:12:10 sun.java.command = /opt/anaconda3/envs/trio-exome/share/rtg-tools-3.13-0/RTG.jar vcfeval -b resources/truth/HG002_GRCh37_benchmark.vcf.gz -c results/variants/trio.filtered.vcf.gz -t resources/ref/hs37d5.sdf -o results/benchmark/HG002_chr22.tmp --evaluation-regions resources/truth/HG002_chr22_eval_regions.bed --sample HG002
+2026-09-29 23:12:10 sun.java.launcher = SUN_STANDARD
+2026-09-29 23:12:10 sun.jnu.encoding = UTF-8
+2026-09-29 23:12:10 sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+2026-09-29 23:12:10 sun.stderr.encoding = UTF-8
+2026-09-29 23:12:10 sun.stdout.encoding = UTF-8
+2026-09-29 23:12:10 talkback = true
+2026-09-29 23:12:10 usage = false
+2026-09-29 23:12:10 user.country = US
+2026-09-29 23:12:10 user.dir = /Users/mek/Documents/trio-exome-pipeline
+2026-09-29 23:12:10 user.home = /Users/mek
+2026-09-29 23:12:10 user.language = en
+2026-09-29 23:12:10 user.name = mek
+2026-09-29 23:12:10 user.timezone = America/Chicago
+2026-09-29 23:12:10 vendor = Azul Systems, Inc.
+2026-09-29 23:12:10 gzipfix.enabled = true
+2026-09-29 23:12:10 Command line arguments: rtg vcfeval -b resources/truth/HG002_GRCh37_benchmark.vcf.gz -c results/variants/trio.filtered.vcf.gz -t resources/ref/hs37d5.sdf -o results/benchmark/HG002_chr22.tmp --evaluation-regions resources/truth/HG002_chr22_eval_regions.bed --sample HG002
+2026-09-29 23:12:10 Run Id: 648e7800-37c1-43a8-83a5-761d902ced68
+2026-09-29 23:12:10 Referenced SDF-ID: 2998fce4-e4ac-45fe-ba9d-45c6f19304ca Type: DNA Sequences: 86 Max-Length: 249250621 Min-Length: 4262 Arm: UNKNOWN
+2026-09-29 23:12:10 Reference sequence 1 is used in baseline but not in calls.
+2026-09-29 23:12:10 Reference sequence 2 is used in baseline but not in calls.
+2026-09-29 23:12:10 Reference sequence 3 is used in baseline but not in calls.
+2026-09-29 23:12:10 Reference sequence 4 is used in baseline but not in calls.
+2026-09-29 23:12:10 Reference sequence 5 is used in baseline but not in calls.
+2026-09-29 23:12:10 Reference sequence 6 is used in baseline but not in calls.
+2026-09-29 23:12:10 Reference sequence 7 is used in baseline but not in calls.
+2026-09-29 23:12:10 Reference sequence 8 is used in baseline but not in calls.
+2026-09-29 23:12:10 Reference sequence 9 is used in baseline but not in calls.
+2026-09-29 23:12:10 Reference sequence 10 is used in baseline but not in calls.
+2026-09-29 23:12:10 Reference sequence 11 is used in baseline but not in calls.
+2026-09-29 23:12:10 Reference sequence 12 is used in baseline but not in calls.
+2026-09-29 23:12:10 Reference sequence 13 is used in baseline but not in calls.
+2026-09-29 23:12:10 Reference sequence 14 is used in baseline but not in calls.
+2026-09-29 23:12:10 Reference sequence 15 is used in baseline but not in calls.
+2026-09-29 23:12:10 Reference sequence 16 is used in baseline but not in calls.
+2026-09-29 23:12:10 Reference sequence 17 is used in baseline but not in calls.
+2026-09-29 23:12:10 Reference sequence 18 is used in baseline but not in calls.
+2026-09-29 23:12:10 Reference sequence 19 is used in baseline but not in calls.
+2026-09-29 23:12:10 Reference sequence 20 is used in baseline but not in calls.
+2026-09-29 23:12:10 Reference sequence 21 is used in baseline but not in calls.
+2026-09-29 23:12:10 Skipping reference sequence X that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence Y that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence MT that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000207.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000226.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000229.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000231.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000210.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000239.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000235.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000201.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000247.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000245.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000197.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000203.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000246.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000249.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000196.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000248.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000244.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000238.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000202.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000234.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000232.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000206.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000240.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000236.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000241.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000243.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000242.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000230.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000237.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000233.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000204.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000198.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000208.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000191.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000227.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000228.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000214.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000221.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000209.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000218.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000220.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000213.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000211.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000199.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000217.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000216.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000215.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000205.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000219.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000224.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000223.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000195.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000212.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000222.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000200.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000193.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000194.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000225.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence GL000192.1 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence NC_007605 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Skipping reference sequence hs37d5 that is used by neither baseline or calls.
+2026-09-29 23:12:10 Variant orientors per pass: [unphased (2 haplotypes):unphased (2 haplotypes)]
+2026-09-29 23:12:11 Reference 1 baseline contains 315020 variants.
+2026-09-29 23:12:11 Reference 1 calls contains 0 variants.
+2026-09-29 23:12:13 Reference 2 baseline contains 327129 variants.
+2026-09-29 23:12:13 Reference 2 calls contains 0 variants.
+2026-09-29 23:12:15 Reference 3 baseline contains 287857 variants.
+2026-09-29 23:12:15 Reference 3 calls contains 0 variants.
+2026-09-29 23:12:18 Reference 4 baseline contains 302953 variants.
+2026-09-29 23:12:18 Reference 4 calls contains 0 variants.
+2026-09-29 23:12:20 Reference 5 baseline contains 262221 variants.
+2026-09-29 23:12:20 Reference 5 calls contains 0 variants.
+2026-09-29 23:12:20 Variant allele in baseline at 6:28680649 has length (2171) exceeding maximum allele length (1000), skipping.
+2026-09-29 23:12:20 Variant allele in baseline at 6:28680654 has length (2160) exceeding maximum allele length (1000), skipping.
+2026-09-29 23:12:20 Variant allele in baseline at 6:29685469 has length (2612) exceeding maximum allele length (1000), skipping.
+2026-09-29 23:12:20 Variant allele in baseline at 6:29899768 has length (1759) exceeding maximum allele length (1000), skipping.
+2026-09-29 23:12:20 Variant allele in baseline at 6:30439407 has length (2420) exceeding maximum allele length (1000), skipping.
+2026-09-29 23:12:20 Variant allele in baseline at 6:30994006 has length (1075) exceeding maximum allele length (1000), skipping.
+2026-09-29 23:12:20 Variant allele in baseline at 6:31010095 has length (3686) exceeding maximum allele length (1000), skipping.
+2026-09-29 23:12:20 Variant allele in baseline at 6:31193239 has length (1144) exceeding maximum allele length (1000), skipping.
+2026-09-29 23:12:20 Variant allele in baseline at 6:31211616 has length (1501) exceeding maximum allele length (1000), skipping.
+2026-09-29 23:12:20 Variant allele in baseline at 6:31279008 has length (9704) exceeding maximum allele length (1000), skipping.
+2026-09-29 23:12:20 Variant allele in baseline at 6:31292175 has length (1733) exceeding maximum allele length (1000), skipping.
+2026-09-29 23:12:20 Variant allele in baseline at 6:31396764 has length (3175) exceeding maximum allele length (1000), skipping.
+2026-09-29 23:12:20 Variant allele in baseline at 6:31421497 has length (2890) exceeding maximum allele length (1000), skipping.
+2026-09-29 23:12:20 Variant allele in baseline at 6:32613442 has length (1878) exceeding maximum allele length (1000), skipping.
+2026-09-29 23:12:20 Variant allele in baseline at 6:32616047 has length (2922) exceeding maximum allele length (1000), skipping.
+2026-09-29 23:12:20 Variant allele in baseline at 6:32619053 has length (1076) exceeding maximum allele length (1000), skipping.
+2026-09-29 23:12:20 Variant allele in baseline at 6:32623524 has length (1101) exceeding maximum allele length (1000), skipping.
+2026-09-29 23:12:20 Variant allele in baseline at 6:32635664 has length (1007) exceeding maximum allele length (1000), skipping.
+2026-09-29 23:12:20 Variant allele in baseline at 6:32778754 has length (1067) exceeding maximum allele length (1000), skipping.
+2026-09-29 23:12:22 Reference 6 baseline contains 265250 variants.
+2026-09-29 23:12:22 Reference 6 calls contains 0 variants.
+2026-09-29 23:12:23 Reference 7 baseline contains 230935 variants.
+2026-09-29 23:12:23 Reference 7 calls contains 0 variants.
+2026-09-29 23:12:24 Reference 8 baseline contains 223012 variants.
+2026-09-29 23:12:24 Reference 8 calls contains 0 variants.
+2026-09-29 23:12:25 Reference 9 baseline contains 170111 variants.
+2026-09-29 23:12:25 Reference 9 calls contains 0 variants.
+2026-09-29 23:12:26 Reference 10 baseline contains 208623 variants.
+2026-09-29 23:12:26 Reference 10 calls contains 0 variants.
+2026-09-29 23:12:27 Reference 11 baseline contains 204913 variants.
+2026-09-29 23:12:27 Reference 11 calls contains 0 variants.
+2026-09-29 23:12:29 Reference 12 baseline contains 195343 variants.
+2026-09-29 23:12:29 Reference 12 calls contains 0 variants.
+2026-09-29 23:12:31 Reference 13 baseline contains 158761 variants.
+2026-09-29 23:12:31 Reference 13 calls contains 0 variants.
+2026-09-29 23:12:31 Reference 14 baseline contains 131722 variants.
+2026-09-29 23:12:31 Reference 14 calls contains 0 variants.
+2026-09-29 23:12:32 Reference 15 baseline contains 123546 variants.
+2026-09-29 23:12:32 Reference 15 calls contains 0 variants.
+2026-09-29 23:12:32 Reference 16 baseline contains 121782 variants.
+2026-09-29 23:12:32 Reference 16 calls contains 0 variants.
+2026-09-29 23:12:33 Reference 17 baseline contains 106556 variants.
+2026-09-29 23:12:33 Reference 17 calls contains 0 variants.
+2026-09-29 23:12:34 Reference 18 baseline contains 118141 variants.
+2026-09-29 23:12:34 Reference 18 calls contains 0 variants.
+2026-09-29 23:12:34 Reference 19 baseline contains 89471 variants.
+2026-09-29 23:12:34 Reference 19 calls contains 0 variants.
+2026-09-29 23:12:35 Reference 20 baseline contains 85464 variants.
+2026-09-29 23:12:35 Reference 20 calls contains 0 variants.
+2026-09-29 23:12:35 Reference 21 baseline contains 55462 variants.
+2026-09-29 23:12:35 Reference 21 calls contains 0 variants.
+2026-09-29 23:12:36 Reference 22 baseline contains 49505 variants.
+2026-09-29 23:12:36 Reference 22 calls contains 18133 variants.
+2026-09-29 23:12:36 Reference 22 had maximum path complexity of 133 at 22:38052838-38053257
+2026-09-29 23:12:39 There were 19 problematic baseline variants skipped during loading (see vcfeval.log for details).
+2026-09-29 23:12:39 Fraction of calls outside evaluation regions: 0.8184 (6448/7879)
+2026-09-29 23:12:39 Representation bias correction factor for SNP 1282/1282.0 = 1.0
+2026-09-29 23:12:39 Representation bias correction factor for NON_SNP 119/119.0 = 1.0
+2026-09-29 23:12:39 Selected score threshold using: maximized F-measure
+2026-09-29 23:12:39 Threshold  True-pos-baseline  True-pos-call  False-pos  False-neg  Precision  Sensitivity  F-measure
+----------------------------------------------------------------------------------------------------
+    5.000               1401           1401         30        105     0.9790       0.9303     0.9540
+     None               1401           1401         30        105     0.9790       0.9303     0.9540
+
+2026-09-29 23:12:39 Finished successfully in 29 s.

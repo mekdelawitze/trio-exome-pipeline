@@ -248,3 +248,13 @@ One limitation worth stating plainly: this is a sensitivity check on one chromos
 A scoping note on this candidate. Variant calling on chr22 was set with `config["region"] = "22"`, so it covers the whole chromosome. It was never restricted to the padded CDS target BED, `chr22_cds_pad100.bed`. That file has only been used for coverage calculations, not as the region GATK actually called variants in.
 
 This matters for the final candidate specifically. It falls outside both the padded and the raw CDS regions, so it sits outside the exome scope this project is meant to represent, even though it was called correctly within the broader chr22 region I processed. Within the exome scope I actually intended, the result on chr22 is zero de novo candidates, at DP>=10 and at DP>=8.
+
+Note on the committed pedigree file: `docs/resources/pedigree/trio.ped` is a
+copy kept under version control, since the pipeline actually reads this file
+from `resources/pedigree/trio.ped`, and `resources/` is gitignored as a
+derived/working directory. The committed copy had stray trailing text on its
+HG004 line (likely introduced when the copy was made) and has been
+corrected. The GATK PossibleDeNovo cross-check reported above ran against
+the local working copy at `resources/pedigree/trio.ped`, confirmed clean (no
+stray text, correct 6 fields per row) when checked afterward, so that result
+is unaffected by this issue.
