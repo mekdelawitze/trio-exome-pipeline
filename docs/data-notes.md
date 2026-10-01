@@ -8,7 +8,7 @@ target regions are Ensembl GRCh37.87 CDS exons for chr22, padded by 100 bases an
 
 ## Manual setup steps (not yet wrapped in Snakemake)
 
-Three resources have to exist before `snakemake` will run, and none is
+Four resources have to exist before `snakemake` will run, and none is
 built by a rule in this pipeline, because they are large, one-time
 downloads/builds rather than per-sample processing steps:
 
@@ -16,7 +16,12 @@ downloads/builds rather than per-sample processing steps:
   samtools indexes):
 
   ```
+  mkdir -p resources/ref
   curl -L -o resources/ref/hs37d5.fa.gz "https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/phase2_reference_assembly_sequence/hs37d5.fa.gz"
+  gunzip resources/ref/hs37d5.fa.gz
+  samtools faidx resources/ref/hs37d5.fa
+  gatk CreateSequenceDictionary -R resources/ref/hs37d5.fa
+  bwa index resources/ref/hs37d5.fa
   ```
 
   Verified against the sample BAM headers (contig names and lengths
@@ -31,6 +36,7 @@ downloads/builds rather than per-sample processing steps:
   curl -L -o resources/Homo_sapiens.GRCh37.87.chr.gtf.gz "https://ftp.ensembl.org/pub/grch37/release-87/gtf/homo_sapiens/Homo_sapiens.GRCh37.87.chr.gtf.gz"
   gzip -t resources/Homo_sapiens.GRCh37.87.chr.gtf.gz && echo "file is intact"
   gunzip -c resources/Homo_sapiens.GRCh37.87.chr.gtf.gz | awk -F'\t' '$1=="22" && $3=="CDS" {print $1"\t"$4-1"\t"$5}' > resources/chr22_cds_raw.bed
+  cut -f1,2 resources/ref/hs37d5.fa.fai > resources/b37.genome
   bedtools slop -i resources/chr22_cds_raw.bed -g resources/b37.genome -b 100 | sort -k1,1 -k2,2n | bedtools merge -i - > resources/chr22_cds_pad100.bed
   ```
 
@@ -48,8 +54,17 @@ downloads/builds rather than per-sample processing steps:
   rtg format -o resources/ref/hs37d5.sdf resources/ref/hs37d5.fa
   ```
 
+- **Pedigree file** (`resources/pedigree/trio.ped`), restored from the
+  version-controlled copy under `docs/resources/pedigree/` (since the
+  `resources/` itself is gitignored):
+
+  ```
+  mkdir -p resources/pedigree
+  cp docs/resources/pedigree/trio.ped resources/pedigree/trio.ped
+  ```
+
 Anyone reproducing this pipeline from a fresh clone needs to obtain or
-rebuild these three resources first, using the commands above.
+rebuild these four resources first, using the commands above.
 Wrapping their construction in Snakemake rules is a possible
 improvement for a later pass.
 
