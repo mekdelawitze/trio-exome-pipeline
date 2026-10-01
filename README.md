@@ -18,7 +18,7 @@ slightly from what produced the results in this repository, since it is
 not pinned to exact builds.
 
 `environment.lock.txt` is an exact snapshot of every package actually
-installed in the author's environment (`conda list --explicit` output),
+installed in the author's environment (`conda list --export` output: plain `package=version=build` lines, not the URL-based `@EXPLICIT` format),
 captured on Apple Silicon macOS (`osx-arm64`). It is not portable to other
 platforms as-is (`conda create --file environment.lock.txt` will fail on
 Linux, Intel Mac, or Windows), but it documents precisely what produced
