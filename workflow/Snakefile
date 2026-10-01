@@ -124,7 +124,10 @@ rule bam_to_fastq:
 rule haplotype_caller:
     input:
         bam="results/align/{sample}.bam",
+        bai="results/align/{sample}.bam.bai",
         ref=config["reference_fasta"],
+        fai=config["reference_fasta"] + ".fai",
+        dict=config["reference_fasta"].rsplit(".", 1)[0] + ".dict",
     output:
         gvcf="results/variants/{sample}.g.vcf.gz",
         idx="results/variants/{sample}.g.vcf.gz.tbi",
@@ -222,5 +225,6 @@ rule benchmark:
     params:
         sample="HG002",
     shell:
-        "rm -rf {output} && rtg vcfeval -b {input.truth_vcf} -c {input.vcf} -t {input.sdf} -o {output} "
-        "--bed-regions {input.regions} --sample {params.sample}"
+        "rm -rf {output}.tmp && rtg vcfeval -b {input.truth_vcf} -c {input.vcf} -t {input.sdf} -o {output}.tmp "
+        "--evaluation-regions {input.regions} --sample {params.sample} "
+        "&& rm -rf {output} && mv {output}.tmp {output}"
