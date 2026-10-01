@@ -144,9 +144,9 @@ from `snp_roc.tsv.gz` and `non_snp_roc.tsv.gz` in the rtg vcfeval output
 directory, since the console summary rtg prints only reports one pooled
 SNP+indel row. Switching the benchmark rule from `--bed-regions` to
 `--evaluation-regions` moved the indel TP count from 120 to 119 (SNPs were
-unaffected), consistent with `--evaluation-regions` avoiding the
-boundary-clipping artifacts that mostly affect indels, whose start/end
-coordinates don't align neatly with a BED region edge.
+unaffected). One plausible explanation is that `--evaluation-regions` avoids the
+boundary-clipping artifacts that tend to affect indels, whose start/end
+coordinates do not always align neatly with a BED region edge, and the specific site that changed was not inspected to confirm this.
 
 Indel accuracy is lower than SNP accuracy, which matches the known
 difficulty of indel calling (ambiguous alignment/representation around
@@ -165,7 +165,7 @@ Snakemake rules instead of commands I ran by hand.
 
 To check this actually worked, I had Snakemake re-run the benchmark
 step and it produced the exact same result as before: TP=1401, FP=30,
-FN=105, F-measure=0.9540 (1282 SNP + 119 indel TPs). Same numbers, so the rules are correct.
+FN=105, F-measure=0.9540 (1282 SNP + 119 indel TPs). Same numbers, which confirms the Snakemake rules reproduce the hand-run result exactly, though matching this baseline is not itself proof every rule is correct.
 
 One note: the version of rtg vcfeval I have installed doesn't support
 the --force flag, and it won't write into an output folder that already
@@ -194,7 +194,7 @@ As a result, `results/qc/align/{sample}.flagstat.txt` and
 already had its "would-be-improperly-paired" reads filtered out before
 alignment, so "% properly paired" in flagstat is modestly inflated by
 construction (under 0.5% of reads affected per sample) rather than
-reflecting a cleaner-than-expected library. This does not affect the
+reflecting a cleaner-than-expected library. This is unlikely to meaningfully affect the
 benchmark or de novo results, which operate on the aligned/called
 variants, not raw read pairing stats, but it does mean the flagstat
 numbers should not be read as if they came from a true chr22-targeted
@@ -262,7 +262,7 @@ One limitation worth stating plainly: this is a sensitivity check on one chromos
 
 A scoping note on this candidate. Variant calling on chr22 was set with `config["region"] = "22"`, so it covers the whole chromosome. It was never restricted to the padded CDS target BED, `chr22_cds_pad100.bed`. That file has only been used for coverage calculations, not as the region GATK actually called variants in.
 
-This matters for the final candidate specifically. It falls outside both the padded and the raw CDS regions, so it sits outside the exome scope this project is meant to represent, even though it was called correctly within the broader chr22 region I processed. Within the exome scope I actually intended, the result on chr22 is zero de novo candidates, at DP>=10 and at DP>=8.
+This matters for the final candidate specifically. It falls outside both the padded and the raw CDS regions, so it sits outside the exome scope this project is meant to represent, even though it passed every pipeline filter within the broader chr22 region I processed, which is not the same as independent read-level validation. Within the exome scope I actually intended, the result on chr22 is zero de novo candidates, at DP>=10 and at DP>=8.
 
 Note on the committed pedigree file: `docs/resources/pedigree/trio.ped` is a
 copy kept under version control, since the pipeline actually reads this file
